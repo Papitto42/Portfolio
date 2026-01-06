@@ -1,0 +1,2439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appiah Elliot Richard | Engineering Architect</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Appiah Elliot Richard - Electronic Engineering student at HKUST specializing in Full-Stack Development, Data Science, Research, Video Production, and STEM Education. Portfolio showcasing projects in Vue.js, Python, and hardware engineering.">
+    <meta name="keywords" content="Full Stack Developer, Engineering Architect, Vue.js, Python, Data Science, HKUST, Portfolio">
+    <meta name="author" content="Appiah Elliot Richard">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://appiahelliotrichard.web.app">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appiahelliotrichard.web.app">
+    <meta property="og:title" content="Appiah Elliot Richard | Engineering Architect">
+    <meta property="og:description" content="Electronic Engineering student at HKUST bridging Hardware Engineering and Full-Stack Development. Specializing in Data Science, Research, Video Production, and STEM Education.">
+    <meta property="og:image" content="https://appiahelliotrichard.web.app/IMG_3426.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://appiahelliotrichard.web.app">
+    <meta property="twitter:title" content="Appiah Elliot Richard | Engineering Architect">
+    <meta property="twitter:description" content="Electronic Engineering student at HKUST bridging Hardware Engineering and Full-Stack Development.">
+    <meta property="twitter:image" content="https://appiahelliotrichard.web.app/IMG_3426.png">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBofQqHTRmPgi0UZo97qWTBbRgXJoVWdRg",
+            authDomain: "appiahelliotrichard.firebaseapp.com",
+            projectId: "appiahelliotrichard",
+            storageBucket: "appiahelliotrichard.firebasestorage.app",
+            messagingSenderId: "1090456323648",
+            appId: "1:1090456323648:web:df0ec93ccd383c9bc8c1a5",
+            measurementId: "G-69W99D917B"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const analytics = firebase.analytics();
+        const database = firebase.database();
+        
+        // Track page view
+        analytics.logEvent('page_view', {
+            page_title: 'Portfolio Home',
+            page_location: window.location.href
+        });
+    </script>
+    
+    <style>
+        :root {
+            --bg-core: #050505;
+            --primary: #00f0ff; /* Cyan */
+            --secondary: #00ff41; /* Neon Green */
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+
+        body {
+            background-color: var(--bg-core);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            overflow-y: hidden; /* Prevent scrolling during load */
+            line-height: 1.6;
+        }
+        body.loaded {
+            overflow-y: auto; /* Re-enable scrolling after load */
+        }
+
+        /* -------------------------
+           MATRIX RAIN LOADER
+           ------------------------- */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+        }
+        body.loaded #loader-wrapper {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* The Matrix Rain Canvas */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        /* Container for the bar and text */
+        .loader-content {
+            position: relative;
+            z-index: 10;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .hacker-text {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px var(--secondary);
+            letter-spacing: 2px;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--secondary);
+        }
+
+        /* The Loading Bar Container */
+        .progress-container {
+            width: 100%;
+            height: 20px;
+            border: 2px solid var(--secondary);
+            padding: 3px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            box-sizing: border-box;
+        }
+
+        /* The Filling Bar */
+        .loader-progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: var(--secondary);
+            box-shadow: 0 0 10px var(--secondary);
+            transition: width 0.02s linear;
+        }
+
+        /* Status messages below bar */
+        .status-msg {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            opacity: 0.8;
+            text-align: left;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* Hide main content initially */
+        #main-content {
+            display: none;
+        }
+        body.loaded #main-content {
+            display: block;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        #cursor {
+            width: 20px; height: 20px; border: 1px solid var(--primary);
+            border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%); transition: transform 0.1s, background 0.2s;
+            mix-blend-mode: difference;
+        }
+        #cursor.hovered { background: var(--primary); transform: translate(-50%, -50%); opacity: 0.4; border: none; }
+        #cursor-dot {
+            width: 4px; height: 4px; background: white; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
+        }
+
+        /* --- BACKGROUND CANVAS --- */
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.5; }
+
+        /* --- LAYOUT --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-pad { padding: 8rem 0; }
+
+        /* 
+           ========================================
+           🔥 NEW ADVANCED SCROLL ANIMATIONS 🔥 
+           ========================================
+        */
+        
+        /* Base hidden state */
+        .animate-hidden {
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* "Spring" effect */
+        }
+
+        /* Animation 1: 3D FLIP UP (For cards) */
+        .anim-flip-up {
+            transform: perspective(1000px) rotateX(30deg) translateY(100px);
+        }
+        .anim-flip-up.active {
+            opacity: 1;
+            transform: perspective(1000px) rotateX(0) translateY(0);
+        }
+
+        /* Animation 2: SLIDE FROM LEFT (For text) */
+        .anim-slide-left {
+            transform: translateX(-100px);
+            filter: blur(10px);
+        }
+        .anim-slide-left.active {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0);
+        }
+
+        /* Animation 3: SLIDE FROM RIGHT (For images) */
+        .anim-slide-right {
+            transform: translateX(100px);
+            filter: blur(10px);
+        }
+        .anim-slide-right.active {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0);
+        }
+
+        /* Animation 4: POP IN (For skills/icons) */
+        .anim-pop {
+            transform: scale(0.5);
+        }
+        .anim-pop.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* STAGGER DELAYS (1 to 5) */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+
+        /* --- TYPOGRAPHY & TYPEWRITER --- */
+        h1, h2, h3 { font-family: var(--font-head); color: #fff; }
+        .mono { font-family: var(--font-mono); }
+        
+        .typewriter-cursor {
+            display: inline-block;
+            width: 10px; height: 1em;
+            background-color: var(--primary);
+            margin-left: 5px;
+            vertical-align: bottom;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* --- NAV BAR --- */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; backdrop-filter: blur(10px); transition: 0.3s;
+        }
+        nav.scrolled { background: rgba(5, 5, 5, 0.9); border-bottom: 1px solid var(--border-light); padding: 1rem 2rem; }
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; position: relative; }
+        .nav-link:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding-top: 120px; position: relative;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem;
+            align-items: center; width: 100%;
+        }
+
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px;
+            border: 1px solid var(--secondary); background: rgba(0, 255, 65, 0.1);
+            color: var(--secondary); font-family: var(--font-mono); font-size: 0.85rem;
+            font-weight: 700; border-radius: 100px; margin-top: 1rem; margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        .hero h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; font-weight: 700; margin-bottom: 1.5rem; min-height: 2.2em; }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem; }
+
+        /* --- PROTOTYPE ARCHITECT CARD --- */
+        .prototype-card {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(8, 12, 17, 0.95);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .prototype-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid var(--primary);
+            border-left: 2px solid var(--primary);
+            border-radius: 24px 0 0 0;
+            z-index: 2;
+        }
+
+        .card-header {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+        }
+
+        .card-profile-lockup {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .card-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid rgba(30, 41, 59, 0.8);
+            background: #111;
+            background-image: url('IMG_3426.png');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+        }
+
+        .card-user-info h2 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .card-user-info h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .card-chip-icon {
+            color: rgba(30, 41, 59, 0.8);
+            transition: color 0.3s;
+        }
+
+        .card-body-content {
+            padding: 32px 24px;
+        }
+
+        .card-section-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
+        .card-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding-left: 8px;
+        }
+
+        .card-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background: rgba(30, 41, 59, 0.8);
+            z-index: 0;
+        }
+
+        .card-timeline-item {
+            position: relative;
+            padding-left: 40px;
+            z-index: 1;
+        }
+
+        .card-timeline-item.active .card-timeline-icon {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .card-timeline-icon {
+            position: absolute;
+            left: 8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(8, 12, 17, 0.95);
+            border: 2px solid rgba(51, 65, 85, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-item-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .card-item-header svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        .card-sub-list {
+            list-style: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .card-sub-list li::before {
+            content: '- ';
+            color: rgba(51, 65, 85, 0.8);
+        }
+
+        .card-footer {
+            padding: 20px 24px;
+            background: rgba(0, 240, 255, 0.03);
+            border-top: 1px solid rgba(30, 41, 59, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-status {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--primary);
+        }
+
+        .card-status span {
+            color: var(--text-muted);
+        }
+
+        .card-slots {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .card-xray-hint {
+            position: absolute;
+            bottom: -25px;
+            right: 24px;
+            background: rgba(30, 41, 59, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(51, 65, 85, 0.8);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .card-xray-hint svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .card-xray-hint .key {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* X-RAY ACTIVE STATE */
+        body.xray-mode .prototype-card {
+            background: rgba(0, 20, 40, 0.8);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px var(--primary);
+        }
+
+        body.xray-mode .card-timeline::before {
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        body.xray-mode .card-body-content,
+        body.xray-mode .card-avatar {
+            opacity: 0.5;
+            filter: sepia(100%) hue-rotate(130deg) saturate(200%);
+        }
+
+        body.xray-mode .card-timeline-icon {
+            background: #000;
+            border-color: #fff;
+        }
+
+        body.xray-mode .card-xray-hint {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+        }
+
+        body.xray-mode .card-xray-hint .key {
+            color: #000;
+        }
+
+        .btn {
+            display: inline-block; padding: 1rem 2.5rem;
+            background: transparent; border: 1px solid var(--border-light);
+            color: #fff; text-decoration: none; font-family: var(--font-mono);
+            font-size: 0.9rem; transition: 0.3s; position: relative; overflow: hidden;
+        }
+        .btn:hover { border-color: var(--primary); color: var(--primary); }
+        .btn-primary { background: var(--primary); color: #000; border: none; font-weight: 700; }
+        .btn-primary:hover { background: #fff; box-shadow: 0 0 25px var(--primary); color: #000; }
+
+        /* SLANTED BUTTONS */
+        .action-bar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        .btn-slant {
+            position: relative; display: inline-flex; align-items: center; justify-content: center;
+            height: 50px; padding: 0 30px; text-decoration: none;
+            font-family: var(--font-head); font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; transform: skewX(-20deg); transition: 0.3s;
+        }
+        .btn-slant span, .btn-slant i { transform: skewX(20deg); }
+
+        .btn-white { background: #ffffff; color: #000; border: 1px solid #fff; }
+        .btn-white:hover { background: var(--primary); border-color: var(--primary); box-shadow: 0 0 20px var(--primary); }
+
+        .btn-outline-green { background: transparent; border: 1px solid var(--secondary); color: var(--secondary); }
+        .btn-outline-green:hover { background: rgba(0, 255, 65, 0.1); box-shadow: 0 0 15px var(--secondary); }
+
+        .btn-outline-blue { background: transparent; border: 1px solid #0077b5; color: #0077b5; }
+        .btn-outline-blue:hover { background: rgba(0, 119, 181, 0.1); box-shadow: 0 0 15px #0077b5; }
+
+        .btn-slant i { margin-right: 10px; font-size: 1.1rem; }
+
+        /* --- STATS --- */
+        .stats-bar {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; padding: 3rem 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 4rem;
+        }
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+
+        /* --- PROJECTS WITH IMAGES --- */
+        .section-label { font-family: var(--font-mono); color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; display: block; letter-spacing: 1px; }
+        .section-title { font-size: 3rem; margin-bottom: 4rem; }
+        
+        .project-grid { display: grid; gap: 5rem; }
+        
+        .project-card {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem;
+            align-items: center; padding: 2rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+            border: 1px solid var(--border-light); border-radius: 20px;
+            overflow: hidden; position: relative;
+        }
+        /* Image styling */
+        .project-visual {
+            height: 350px; width: 100%; border-radius: 12px; overflow: hidden;
+            position: relative; border: 1px solid #333;
+        }
+        .project-img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-overlay {
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(to top, #000 0%, transparent 60%);
+        }
+
+        .project-info h3 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .tech-tag {
+            font-size: 0.8rem; font-family: var(--font-mono);
+            padding: 6px 12px; border: 1px solid var(--border-light);
+            border-radius: 4px; color: #ccc; background: rgba(255,255,255,0.02); margin-right: 8px;
+        }
+
+        /* --- SKILLS --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.5rem; }
+        .skill-box {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border-light);
+            padding: 2rem; text-align: center; border-radius: 8px; transition: 0.3s;
+        }
+        .skill-box:hover { background: rgba(0, 240, 255, 0.1); border-color: var(--primary); transform: translateY(-10px); }
+        .skill-icon { font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary); }
+
+        /* --- 3D LAYERED INTERFACE --- */
+        .competencies-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 600px;
+            position: relative;
+        }
+
+        .process-scene {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .center-line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+            border-left: 1px dashed rgba(0, 240, 255, 0.3);
+            z-index: 0;
+        }
+
+        .stack-container {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateX(55deg) rotateZ(-45deg);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 240, 255, 0.03);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+            backdrop-filter: blur(2px);
+            transition: all 0.5s ease;
+        }
+
+        .layer:nth-child(1) {
+            transform: translateZ(-60px) scale(1.4);
+            background: rgba(0, 240, 255, 0.01);
+            border-color: rgba(0, 240, 255, 0.05);
+        }
+
+        .layer:nth-child(2) {
+            transform: translateZ(-20px) scale(1.2);
+            background: rgba(0, 240, 255, 0.03);
+        }
+
+        .layer:nth-child(3) {
+            transform: translateZ(20px) scale(1);
+            background: rgba(0, 240, 255, 0.05);
+            box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+        }
+
+        .layer:nth-child(4) {
+            transform: translateZ(60px) scale(0.8);
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(0, 240, 255, 0.02));
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .labels-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .label-group {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .pill {
+            background: rgba(5, 5, 5, 0.95);
+            border: 1px solid var(--border-light);
+            padding: 10px 18px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            font-family: var(--font-mono);
+        }
+
+        .toggle {
+            width: 24px;
+            height: 14px;
+            border-radius: 10px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            width: 10px;
+            height: 10px;
+            background: #000;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .toggle.active {
+            background-color: var(--primary);
+        }
+        .toggle.active::after {
+            left: 12px;
+        }
+
+        .toggle.inactive {
+            background-color: var(--text-muted);
+        }
+        .toggle.inactive::after {
+            left: 2px;
+            background: #aaa;
+        }
+
+        .toggle.done {
+            background-color: var(--secondary);
+        }
+        .toggle.done::after {
+            left: 12px;
+        }
+
+        .connector {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, var(--text-muted), transparent);
+        }
+
+        .label-group:nth-child(1) {
+            top: 30%;
+            left: 10%;
+            animation-delay: 0.2s;
+        }
+        .label-group:nth-child(1) .connector {
+            order: 2;
+            transform: rotate(15deg);
+            transform-origin: left;
+        }
+
+        .label-group:nth-child(2) {
+            top: 45%;
+            right: 12%;
+            flex-direction: row-reverse;
+            animation-delay: 0.4s;
+        }
+        .label-group:nth-child(2) .connector {
+            transform: rotate(-10deg);
+            transform-origin: right;
+        }
+
+        .label-group:nth-child(3) {
+            top: 60%;
+            left: 8%;
+            animation-delay: 0.6s;
+        }
+        .label-group:nth-child(3) .connector {
+            order: 2;
+            transform: rotate(-15deg);
+            transform-origin: left;
+        }
+
+        .label-group:nth-child(4) {
+            top: 75%;
+            right: 20%;
+            flex-direction: row-reverse;
+            animation-delay: 0.8s;
+        }
+        .label-group:nth-child(4) .pill {
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: rotateX(55deg) rotateZ(-45deg) translateZ(0);
+            }
+            50% {
+                transform: rotateX(55deg) rotateZ(-45deg) translateZ(20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .skills-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skill-mini {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-light);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        .skill-mini:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        /* --- TIMELINE --- */
+        .timeline { position: relative; padding-left: 3rem; border-left: 1px solid var(--border-light); }
+        .timeline-item { position: relative; margin-bottom: 4rem; }
+        .timeline-dot {
+            position: absolute; left: -3.35rem; top: 0;
+            width: 12px; height: 12px; background: var(--bg-core);
+            border: 2px solid var(--text-muted); border-radius: 50%; transition: 0.3s;
+        }
+        .timeline-item:hover .timeline-dot { border-color: var(--secondary); background: var(--secondary); box-shadow: 0 0 15px var(--secondary); }
+        .role { font-size: 1.5rem; font-weight: 700; color: #fff; }
+        .company { color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 1rem; display: block; }
+
+        /* --- TERMINAL INTERFACE --- */
+        .terminal-section {
+            padding: 8rem 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .terminal-window {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            background-color: rgba(1, 4, 9, 0.95);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .terminal-header {
+            background: rgba(22, 27, 34, 0.9);
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .terminal-title {
+            flex-grow: 1;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+        }
+
+        .terminal-body {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            color: var(--secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-family: var(--font-mono);
+        }
+
+        .terminal-body a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-color: var(--secondary);
+            cursor: pointer;
+        }
+
+        .terminal-body a:hover {
+            color: var(--secondary);
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .terminal-prompt {
+            color: var(--text-muted);
+            margin-right: 10px;
+            user-select: none;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            outline: none;
+            caret-color: var(--primary);
+        }
+
+        .terminal-output-line {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .terminal-command-history {
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .terminal-error {
+            color: #ff7b72;
+        }
+
+        .terminal-scanner {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .terminal-blink {
+            animation: terminalBlink 1s linear infinite;
+        }
+
+        @keyframes terminalBlink {
+            50% { opacity: 0; }
+        }
+
+        .terminal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terminal-body::-webkit-scrollbar-track {
+            background: rgba(13, 17, 23, 0.5);
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 4px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .prototype-card { margin: 0 auto; max-width: 400px; }
+            .project-card { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .competencies-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .process-scene { height: 500px; }
+            .stack-container { width: 150px; height: 225px; }
+            .skills-sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .terminal-window {
+                height: 400px;
+                margin: 0 1rem;
+            }
+        }
+
+        /* --- ADMIN DASHBOARD (Full Page) --- */
+        #admin-dashboard {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.98);
+            z-index: 99999;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        #admin-dashboard.active {
+            display: block;
+        }
+
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .admin-title {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .admin-close {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .admin-close:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .admin-card {
+            background: rgba(8, 12, 17, 0.95);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: 0.3s;
+        }
+
+        .admin-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .admin-card-title {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .admin-stat {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .admin-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--primary);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        .admin-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .admin-table tr:hover {
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 2rem;
+            color: var(--primary);
+            font-family: var(--font-mono);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MATRIX RAIN LOADER -->
+    <div id="loader-wrapper">
+        <canvas id="matrix-canvas"></canvas>
+        
+        <div class="loader-content">
+            <div class="hacker-text">SYSTEM INTRUSION DETECTED</div>
+            <div class="progress-container">
+                <div class="loader-progress-bar" id="loader-progress-bar"></div>
+            </div>
+            <div class="status-msg" id="loader-status-msg">Initializing...</div>
+            <div class="hacker-text" style="margin-top:5px; font-size: 1rem;">
+                <span id="loader-percentage">0</span>%
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav id="navbar">
+        <div class="logo mono text-primary">&lt;ELLIOT_DEV /&gt;</div>
+        <div class="nav-links mono">
+            <a href="#about" class="nav-link">01. SKILLS</a>
+            <a href="#projects" class="nav-link">02. WORK</a>
+            <a href="#experience" class="nav-link">03. HISTORY</a>
+            <a href="#contact" class="nav-link">04. CONNECT</a>
+        </div>
+        <a href="mailto:appiahelliot1@gmail.com" class="btn">CONTACT</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero container">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <!-- INFINITE TYPEWRITER 1 -->
+                <div class="status-badge animate-hidden anim-slide-left">
+                    <span id="status-text"></span><span class="typewriter-cursor"></span>
+                </div>
+                
+                <!-- INFINITE TYPEWRITER 2 -->
+                <h1 class="animate-hidden anim-slide-left delay-1">
+                    <span id="name-text"></span><span class="typewriter-cursor"></span>
+                </h1>
+                
+                <p class="animate-hidden anim-slide-left delay-2">
+                    Electronic Engineering student at HKUST bridging <strong>Hardware Engineering</strong> and <strong>Full-Stack Development</strong>. 
+                    Specializing in Data Science, Research, Video Production, and STEM Education.
+                </p>
+                <div class="animate-hidden anim-slide-left delay-3">
+                    <a href="#projects" class="btn btn-primary">VIEW DEPLOYMENTS</a>
+                    <a href="#about" class="btn" style="margin-left: 1rem;">ABOUT ME</a>
+                </div>
+                
+                <!-- SLANTED SOCIAL MEDIA BUTTONS -->
+                <div class="action-bar animate-hidden anim-slide-left delay-4" style="margin-top: 2rem;">
+                    <!-- 1. EMAIL ME (White) -->
+                    <a href="mailto:appiahelliot1@gmail.com" class="btn-slant btn-white hover-trigger">
+                        <span>EMAIL ME &rarr;</span>
+                    </a>
+                    <!-- 2. WHATSAPP (Green) -->
+                    <a href="https://wa.me/85251910075" class="btn-slant btn-outline-green hover-trigger">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WHATSAPP</span>
+                    </a>
+                    <!-- 3. LINKEDIN (Blue) -->
+                    <a href="#" class="btn-slant btn-outline-blue hover-trigger">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LINKEDIN</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROTOTYPE ARCHITECT CARD -->
+            <div class="hero-image animate-hidden anim-slide-right delay-4">
+                <div class="prototype-card hover-trigger">
+                    <!-- Header -->
+                    <div class="card-header">
+                        <div class="card-profile-lockup">
+                            <div class="card-avatar"></div>
+                            <div class="card-user-info">
+                                <h2>FULL_STACK_DEV</h2>
+                                <h1>Appiah Elliot Richard</h1>
+                            </div>
+                        </div>
+                        <!-- Chip Icon SVG -->
+                        <svg class="card-chip-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="card-body-content">
+                        <div class="card-section-label">
+                            <span>DEVELOPMENT_PIPELINE</span>
+                            <!-- Pulse Icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+
+                        <div class="card-timeline">
+                            <!-- Item 1 -->
+                            <div class="card-timeline-item active">
+                                <div class="card-timeline-icon"></div>
+                                <div class="card-item-header">
+                                    <!-- Code Icon -->
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                    CODE_DEVELOPMENT
+                                </div>
+                                <ul class="card-sub-list">
+                                    <li>Vue.js & Vue Router</li>
+                                    <li>RESTful API Integration</li>
+                                    <li>Responsive Design</li>
+                                </ul>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="card-timeline-item active">
+                                <div class="card-timeline-icon"></div>
+                                <div class="card-item-header">
+                                    <!-- Test Icon -->
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                    TESTING_DEBUGGING
+                                </div>
+                                <ul class="card-sub-list">
+                                    <li>Data Analysis & Research</li>
+                                    <li>Mathematical Modeling</li>
+                                    <li>Problem Solving</li>
+                                </ul>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="card-timeline-item active">
+                                <div class="card-timeline-icon"></div>
+                                <div class="card-item-header">
+                                    <!-- Deploy Icon -->
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                    DEPLOYMENT_OPS
+                                </div>
+                                <ul class="card-sub-list">
+                                    <li>UI/UX Design (Figma)</li>
+                                    <li>Video Production</li>
+                                    <li>STEM Education</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer">
+                        <div class="card-status">
+                            <span>STATUS:</span> ONLINE
+                        </div>
+                        <div class="card-slots">
+                            Hong Kong
+                        </div>
+                    </div>
+
+                    <!-- X-Ray Hint Button -->
+                    <div class="card-xray-hint">
+                        <!-- Eye Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                        HOLD <span class="key">[SPACE]</span> FOR X-RAY
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- STATS -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item hover-trigger animate-hidden anim-pop delay-1">
+                <h3>6+</h3><p>Organizations Served</p>
+            </div>
+            <div class="stat-item hover-trigger animate-hidden anim-pop delay-2">
+                <h3>12+</h3><p>Weeks Research Programs</p>
+            </div>
+            <div class="stat-item hover-trigger animate-hidden anim-pop delay-3">
+                <h3>30%</h3><p>Energy Cost Reduction</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS (3D Interface Centerpiece) -->
+    <section id="about" class="container section-pad">
+        <div class="animate-hidden anim-slide-left">
+            <span class="section-label">01. TECHNICAL ARSENAL</span>
+            <h2 class="section-title">Core Competencies</h2>
+        </div>
+        <div class="competencies-wrapper">
+            <!-- Left Sidebar Skills -->
+            <div class="skills-sidebar animate-hidden anim-slide-left delay-1">
+                <div class="skill-mini hover-trigger">PYTHON</div>
+                <div class="skill-mini hover-trigger">JAVASCRIPT</div>
+                <div class="skill-mini hover-trigger">VUE.JS</div>
+                <div class="skill-mini hover-trigger">MATLAB</div>
+            </div>
+
+            <!-- 3D Process Visualization (Centerpiece) -->
+            <div class="process-scene animate-hidden anim-pop delay-2">
+                <div class="center-line"></div>
+                <div class="stack-container">
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                </div>
+                <div class="labels-container">
+                    <div class="label-group">
+                        <div class="pill">
+                            <div class="toggle active"></div>
+                            01. ANALYZE
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="label-group">
+                        <div class="connector"></div>
+                        <div class="pill">
+                            02. SIMULATE
+                            <div class="toggle active"></div>
+                        </div>
+                    </div>
+                    <div class="label-group">
+                        <div class="pill">
+                            <div class="toggle active"></div>
+                            03. ENGINEER
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                    <div class="label-group">
+                        <div class="connector"></div>
+                        <div class="pill">
+                            04. FABRICATE
+                            <div class="toggle active"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Skills -->
+            <div class="skills-sidebar animate-hidden anim-slide-right delay-3">
+                <div class="skill-mini hover-trigger">FIGMA</div>
+                <div class="skill-mini hover-trigger">HTML/CSS</div>
+                <div class="skill-mini hover-trigger">DATA ANALYSIS</div>
+                <div class="skill-mini hover-trigger">UI/UX DESIGN</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS (3D Flip Up Animation) -->
+    <section id="projects" class="container section-pad">
+        <div class="animate-hidden anim-slide-left">
+            <span class="section-label">02. SELECTED WORKS</span>
+            <h2 class="section-title">Featured Operations</h2>
+        </div>
+
+        <div class="project-grid">
+            
+            <!-- PROJECT 1 -->
+            <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <div class="project-visual">
+                    <div class="project-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop" class="project-img" alt="Elliot Explains">
+                </div>
+                <div class="project-info">
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">EDTECH / YOUTUBE</div>
+                    <h3>Elliot Explains</h3>
+                    <p>Founded animated science education channel reaching 170k+ views. Created engaging technical content and supported 5 National Science & Maths Quiz teams.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Video Production</span><span class="tech-tag">Animation</span><span class="tech-tag">Content Creation</span>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 1rem;">View Channel</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 2 -->
+            <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <div class="project-visual">
+                    <div class="project-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1000&auto=format&fit=crop" class="project-img" alt="Sparrow Housing">
+                </div>
+                <div class="project-info">
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">WEB / FULL STACK</div>
+                    <h3>Sparrow Housing Platform</h3>
+                    <p>Designed core pages with Figma and Vue.js. Built interactive map search with Leaflet.js enabling students to explore 20-30 housing listings with filterable categories. Integrated Vue Router and Axios for seamless navigation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vue.js</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Figma</span><span class="tech-tag">Axios</span>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 3 -->
+            <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <div class="project-visual">
+                    <div class="project-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop" class="project-img" alt="Ambulance Model">
+                </div>
+                <div class="project-info">
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">RESEARCH / DATA SCIENCE</div>
+                    <h3>Ambulance Queuing Model</h3>
+                    <p>Built mathematical queuing model with Dr. Adu Boakye at KNUST optimizing emergency services logistics. Now implemented in 5 hospitals across Ghana, improving response times and resource allocation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span><span class="tech-tag">Mathematical Modeling</span><span class="tech-tag">Data Analysis</span>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Read Research</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 4 -->
+            <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <div class="project-visual">
+                    <div class="project-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop" class="project-img" alt="Pet Pet Club">
+                </div>
+                <div class="project-info">
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">BUSINESS / DEVELOPMENT</div>
+                    <h3>Pet Pet Club Limited</h3>
+                    <p>Developed and managed business operations for Pet Pet Club Limited. Created innovative solutions and strategies to drive growth and operational efficiency.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Business Development</span><span class="tech-tag">Operations</span><span class="tech-tag">Strategy</span>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 1rem;">View Details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 5 - AURAPPLY (In Development) -->
+            <article class="project-card hover-trigger animate-hidden anim-flip-up" style="position: relative; opacity: 0.95;">
+                <div class="project-visual" style="position: relative;">
+                    <div class="project-overlay"></div>
+                    <img src="phone-mockups.png" class="project-img" alt="AurApply">
+                    <div style="position: absolute; top: 15px; right: 15px; background: rgba(0, 240, 255, 0.2); border: 1px solid var(--primary); padding: 6px 12px; border-radius: 20px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); backdrop-filter: blur(4px);">
+                        IN DEVELOPMENT
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">PERSONAL PROJECT / IN DEVELOPMENT</div>
+                    <h3>AurApply</h3>
+                    <p>A personal project currently in active development. Building innovative solutions to streamline application processes and enhance user experience.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Full Stack</span><span class="tech-tag">In Development</span><span class="tech-tag">Personal Project</span>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 1rem; opacity: 0.7; cursor: not-allowed;" onclick="return false;">Coming Soon</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE (Slide Left Animation) -->
+    <section id="experience" class="container section-pad">
+        <div class="animate-hidden anim-slide-left">
+            <span class="section-label">03. MISSION LOG</span>
+            <h2 class="section-title">Experience History</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item animate-hidden anim-slide-left delay-1">
+                <div class="timeline-dot"></div>
+                <span class="mono" style="color: var(--secondary)">SUMMER 2025</span>
+                <h3 class="role">Full Stack Developer</h3>
+                <span class="company">Sparrow — HKUST TLE Program</span>
+                <p style="color: var(--text-muted)">Designed and beautified core pages with Figma, Vue.js, and Vuetify. Developed interactive map search feature with Leaflet.js for 20-30 housing listings. Integrated Vue Router and Axios for seamless navigation.</p>
+            </div>
+            <div class="timeline-item animate-hidden anim-slide-left delay-2">
+                <div class="timeline-dot"></div>
+                <span class="mono" style="color: var(--secondary)">JUNE 2025</span>
+                <h3 class="role">Video Producer / Content Creator</h3>
+                <span class="company">HKUST Sustainability Office</span>
+                <p style="color: var(--text-muted)">Produced engaging videos and tutorials for sustainability campaigns. Used AI tools to create data-driven technical content.</p>
+            </div>
+            <div class="timeline-item animate-hidden anim-slide-left delay-3">
+                <div class="timeline-dot"></div>
+                <span class="mono" style="color: var(--secondary)">ONGOING</span>
+                <h3 class="role">Research Assistant / Program Coordinator</h3>
+                <span class="company">Pioneer Academics (USA/Remote)</span>
+                <p style="color: var(--text-muted)">Serving as liaison between world-class U.S. professors and international students, delivering 6 hours of weekly mentorship and technical guidance over 12-week research programs.</p>
+            </div>
+            <div class="timeline-item animate-hidden anim-slide-left delay-4">
+                <div class="timeline-dot"></div>
+                <span class="mono" style="color: var(--secondary)">ONGOING</span>
+                <h3 class="role">Curriculum Developer & Instructor</h3>
+                <span class="company">STEMEX Academy, Hong Kong</span>
+                <p style="color: var(--text-muted)">Developed comprehensive RoboMaster curriculum for high school students. Delivered lessons on RoboMaster, Scratch, and Python, preparing students for competitions.</p>
+            </div>
+            <div class="timeline-item animate-hidden anim-slide-left delay-5">
+                <div class="timeline-dot"></div>
+                <span class="mono" style="color: var(--secondary)">OCT 2023</span>
+                <h3 class="role">Solar Engineering Intern</h3>
+                <span class="company">Daystar Power Solutions, Ghana</span>
+                <p style="color: var(--text-muted)">Installed 4.3MW solar plant, achieving 30% reduction in energy costs and emissions.</p>
+            </div>
+            <div class="timeline-item animate-hidden anim-slide-left delay-1">
+                <div class="timeline-dot"></div>
+                <span class="mono" style="color: var(--secondary)">JUL 2023</span>
+                <h3 class="role">Researcher</h3>
+                <span class="company">KNUST with Dr. Adu Boakye, Ghana</span>
+                <p style="color: var(--text-muted)">Built ambulance queuing model now implemented in 5 hospitals, optimizing emergency service logistics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMINAL INTERFACE -->
+    <section class="terminal-section container">
+        <div class="animate-hidden anim-slide-left">
+            <span class="section-label">04. SYSTEM INTERFACE</span>
+            <h2 class="section-title">Developer Terminal</h2>
+        </div>
+        <div class="terminal-window hover-trigger animate-hidden anim-pop delay-1" onclick="document.getElementById('terminal-cmd-input').focus()">
+            <!-- Window Header -->
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">elliot_dev_interface — -zsh — 80x24</div>
+            </div>
+
+            <!-- Terminal Content -->
+            <div class="terminal-body" id="terminal-output">
+                <div class="terminal-output-line">
+                    > Appiah Elliot Richard AI Protocol initialized...
+                </div>
+                <div class="terminal-output-line">
+                    > System online. Accessing portfolio data...
+                </div>
+                <div class="terminal-scanner">
+                    SCANNING SECTOR <span class="terminal-blink">...</span>
+                </div>
+                <div class="terminal-output-line">
+                    > Type <span style="color:var(--text-main)">'help'</span> to see available commands.
+                </div>
+
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">$</span>
+                    <input type="text" id="terminal-cmd-input" class="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" style="text-align:center; padding: 8rem 0; border-top: 1px solid #222;" class="animate-hidden anim-pop">
+        <p class="mono text-primary">READY TO COLLABORATE?</p>
+        <a href="mailto:appiahelliot1@gmail.com" class="hover-trigger" style="font-size: 3rem; font-weight: 700; color: #fff; text-decoration: none;">appiahelliot1@gmail.com</a>
+        <p style="margin-top: 2rem; color: #555; font-size: 0.8rem;">&copy; 2025 APPIAH ELLIOT RICHARD.</p>
+    </footer>
+    </div> <!-- End main-content -->
+
+    <!-- ADMIN DASHBOARD (Full Page) -->
+    <div id="admin-dashboard">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1 class="admin-title">[ADMIN DASHBOARD]</h1>
+                <button class="admin-close" onclick="closeAdminDashboard()">CLOSE</button>
+            </div>
+
+            <div id="admin-content">
+                <div class="loading-spinner">Loading analytics data...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 0. MATRIX RAIN LOADER ---
+        (function() {
+            const matrixCanvas = document.getElementById('matrix-canvas');
+            const matrixCtx = matrixCanvas.getContext('2d');
+            const loaderWrapper = document.getElementById('loader-wrapper');
+            const loaderProgressBar = document.getElementById('loader-progress-bar');
+            const loaderPercentage = document.getElementById('loader-percentage');
+            const loaderStatusMsg = document.getElementById('loader-status-msg');
+            const mainContent = document.getElementById('main-content');
+
+            // Set canvas to full screen
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+
+            // Characters for matrix rain
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
+            const charArray = chars.split('');
+            const fontSize = 14;
+            const columns = matrixCanvas.width / fontSize;
+
+            // Array of drops - one per column
+            const drops = [];
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1; 
+            }
+
+            function drawMatrix() {
+                // Translucent BG to show trail
+                matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+
+                matrixCtx.fillStyle = '#0F0'; // Green text
+                matrixCtx.font = fontSize + 'px monospace';
+
+                // Loop over drops
+                for (let i = 0; i < drops.length; i++) {
+                    const text = charArray[Math.floor(Math.random() * charArray.length)];
+                    matrixCtx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    // Reset drop to top randomly after crossing screen
+                    if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+
+                    // Increment Y coordinate
+                    drops[i]++;
+                }
+            }
+
+            // Run the matrix effect
+            const matrixInterval = setInterval(drawMatrix, 33);
+
+            // Loading bar logic
+            const totalTime = 2000; // 2 seconds in ms
+            const intervalTime = 20; // Update every 20ms
+            const steps = totalTime / intervalTime; // Total steps (100)
+            let currentStep = 0;
+
+            const messages = [
+                "Bypassing Firewalls...",
+                "Injecting SQL Payload...",
+                "Decrypting Root Keys...",
+                "Accessing Mainframe...",
+                "Downloading Assets..."
+            ];
+
+            const loadingInterval = setInterval(() => {
+                currentStep++;
+                const width = (currentStep / steps) * 100;
+                
+                // Update Bar Width
+                loaderProgressBar.style.width = width + '%';
+                
+                // Update Percentage Text
+                loaderPercentage.innerText = Math.round(width);
+
+                // Randomly update status message
+                if(currentStep % 15 === 0) {
+                    loaderStatusMsg.innerText = messages[Math.floor(Math.random() * messages.length)];
+                }
+
+                // FINISHED LOADING
+                if (currentStep >= steps) {
+                    clearInterval(loadingInterval);
+                    clearInterval(matrixInterval); // Stop matrix to save resources
+                    
+                    // Fade out loader and show content
+                    setTimeout(() => {
+                        document.body.classList.add('loaded');
+                        loaderWrapper.style.display = 'none';
+                    }, 500);
+                }
+            }, intervalTime);
+
+            // Handle window resize for matrix effect
+            window.addEventListener('resize', () => {
+                matrixCanvas.width = window.innerWidth;
+                matrixCanvas.height = window.innerHeight;
+            });
+        })();
+
+        // --- 1. INFINITE TYPEWRITER LOGIC ---
+        class Typewriter {
+            constructor(el, text, waitTime = 3000) {
+                this.el = el;
+                this.text = text;
+                this.waitTime = waitTime;
+                this.txt = '';
+                this.isDeleting = false;
+                this.tick();
+            }
+
+            tick() {
+                const fullTxt = this.text;
+                
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = this.txt;
+
+                let typeSpeed = 100;
+                if (this.isDeleting) typeSpeed /= 2; // Delete faster
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    typeSpeed = this.waitTime; // Wait before deleting
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    typeSpeed = 500; // Wait before retyping
+                }
+
+                setTimeout(() => this.tick(), typeSpeed);
+            }
+        }
+
+        // Init Typewriters on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Status Types Forever
+            new Typewriter(document.getElementById('status-text'), 'SYSTEM ONLINE: Hong Kong', 2000);
+            // Name Types Forever
+            setTimeout(() => {
+                 new Typewriter(document.getElementById('name-text'), "Hi, I'm Elliot.", 4000);
+            }, 500);
+        });
+
+        // --- 2. ADVANCED SCROLL OBSERVER ---
+        const observerOptions = {
+            threshold: 0.15, // Trigger when 15% visible
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const animElements = document.querySelectorAll('.animate-hidden');
+        animElements.forEach(el => scrollObserver.observe(el));
+
+        // --- 3. BACKGROUND PARTICLES (Standard) ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+        
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width; this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 240, 255, 0.5)';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+        function initParticles() { particles = []; for (let i = 0; i < 60; i++) particles.push(new Particle()); }
+        
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach((p, index) => {
+                p.update(); p.draw();
+                for (let j = index; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 150) {
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${1 - dist/150})`;
+                        ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                }
+                if (mouse.x) {
+                    const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+                    if (dist < 250) {
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${1 - dist/250})`;
+                        ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+        window.addEventListener('resize', () => { resize(); initParticles(); });
+        resize(); initParticles(); animate();
+
+        // --- 4. CURSOR LOGIC ---
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        const triggers = document.querySelectorAll('.hover-trigger, a, button, .btn');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+        });
+        triggers.forEach(t => {
+            t.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            t.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+
+        // --- 5. X-RAY INTERACTION LOGIC ---
+        const body = document.body;
+
+        // Listen for Key Down (Spacebar)
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); // Prevent scrolling
+                body.classList.add('xray-mode');
+            }
+        });
+
+        // Listen for Key Up (Spacebar)
+        document.addEventListener('keyup', (e) => {
+            if (e.code === 'Space') {
+                body.classList.remove('xray-mode');
+            }
+        });
+
+        // Mobile Touch Support (Press and hold anywhere)
+        document.addEventListener('touchstart', () => {
+            body.classList.add('xray-mode');
+        });
+        document.addEventListener('touchend', () => {
+            body.classList.remove('xray-mode');
+        });
+
+        // --- 6. TERMINAL INTERFACE LOGIC ---
+        (function() {
+            const terminalInput = document.getElementById('terminal-cmd-input');
+            const terminalOutput = document.getElementById('terminal-output');
+            const terminalBody = document.querySelector('.terminal-body');
+
+            if (!terminalInput || !terminalOutput) return;
+
+            // Admin password (hidden - type this in terminal to activate admin mode)
+            const ADMIN_PASSWORD = 'elliot2025';
+            let adminModeActive = false;
+            
+            // Analytics Tracking System
+            const analyticsData = {
+                pageViews: parseInt(localStorage.getItem('portfolio_pageViews') || '0'),
+                sessions: parseInt(localStorage.getItem('portfolio_sessions') || '0'),
+                totalTime: parseInt(localStorage.getItem('portfolio_totalTime') || '0'),
+                commandsUsed: JSON.parse(localStorage.getItem('portfolio_commands') || '[]'),
+                scrollDepth: parseInt(localStorage.getItem('portfolio_scrollDepth') || '0'),
+                clicks: parseInt(localStorage.getItem('portfolio_clicks') || '0'),
+                firstVisit: localStorage.getItem('portfolio_firstVisit') || new Date().toISOString(),
+                lastVisit: new Date().toISOString(),
+                browser: navigator.userAgent,
+                screenSize: `${window.innerWidth}x${window.innerHeight}`,
+                referrer: document.referrer || 'Direct',
+                sessionStart: Date.now()
+            };
+            
+            // Initialize session
+            if (!sessionStorage.getItem('portfolio_sessionActive')) {
+                analyticsData.sessions++;
+                analyticsData.pageViews++;
+                sessionStorage.setItem('portfolio_sessionActive', 'true');
+                sessionStorage.setItem('portfolio_sessionStart', Date.now().toString());
+                localStorage.setItem('portfolio_pageViews', analyticsData.pageViews.toString());
+                localStorage.setItem('portfolio_sessions', analyticsData.sessions.toString());
+                localStorage.setItem('portfolio_firstVisit', analyticsData.firstVisit);
+            } else {
+                analyticsData.pageViews++;
+                localStorage.setItem('portfolio_pageViews', analyticsData.pageViews.toString());
+            }
+            
+            // Track scroll depth
+            let maxScroll = 0;
+            window.addEventListener('scroll', () => {
+                const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+                if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                    analyticsData.scrollDepth = Math.max(analyticsData.scrollDepth, maxScroll);
+                    localStorage.setItem('portfolio_scrollDepth', analyticsData.scrollDepth.toString());
+                }
+            });
+            
+            // Track clicks
+            document.addEventListener('click', (e) => {
+                analyticsData.clicks++;
+                localStorage.setItem('portfolio_clicks', analyticsData.clicks.toString());
+            });
+            
+            // Track terminal commands function
+            function trackCommand(cmd) {
+                if (cmd && cmd !== 'clear' && cmd !== ADMIN_PASSWORD) {
+                    const commands = JSON.parse(localStorage.getItem('portfolio_commands') || '[]');
+                    commands.push({ command: cmd, timestamp: new Date().toISOString() });
+                    // Keep only last 50 commands
+                    if (commands.length > 50) commands.shift();
+                    localStorage.setItem('portfolio_commands', JSON.stringify(commands));
+                    analyticsData.commandsUsed = commands;
+                }
+            }
+            
+            // Update session time on unload
+            window.addEventListener('beforeunload', () => {
+                const sessionTime = Date.now() - parseInt(sessionStorage.getItem('portfolio_sessionStart') || Date.now().toString());
+                analyticsData.totalTime += Math.round(sessionTime / 1000); // in seconds
+                localStorage.setItem('portfolio_totalTime', analyticsData.totalTime.toString());
+                localStorage.setItem('portfolio_lastVisit', new Date().toISOString());
+            });
+
+            // Command Registry
+            const commands = {
+                'help': "Available commands:<br>- <span style='color:var(--text-main)'>whoami</span>: Who is Elliot?<br>- <span style='color:var(--text-main)'>stack</span>: View tech stack<br>- <span style='color:var(--text-main)'>projects</span>: List recent builds<br>- <span style='color:var(--text-main)'>contact</span>: Get email/socials<br>- <span style='color:var(--text-main)'>experience</span>: View work history<br>- <span style='color:var(--text-main)'>clear</span>: Clear terminal",
+
+                'whoami': "Appiah Elliot Richard. Engineering Architect & Full Stack Developer.<br>Electronic Engineering student at HKUST bridging Hardware Engineering and Full-Stack Development.<br>Specializing in Data Science, Research, Video Production, and STEM Education.",
+
+                'stack': "CORE SYSTEMS:<br>[Python, JavaScript, Vue.js, MATLAB, Figma, HTML/CSS, Data Analysis, UI/UX Design]",
+
+                'projects': "RECENT DEPLOYMENTS:<br>1. <a href='#projects'>Elliot Explains</a> - EdTech YouTube Channel (170k+ views)<br>2. <a href='#projects'>Sparrow Housing Platform</a> - Full Stack Web App (Vue.js/Leaflet.js)<br>3. <a href='#projects'>Ambulance Queuing Model</a> - Research/Data Science (Python)<br>4. <a href='#projects'>Pet Pet Club Limited</a> - Business Development<br>5. <a href='#projects'>AurApply</a> - Personal Project (In Development)",
+
+                'contact': "Opening communication channels...<br>Email: <a href='mailto:appiahelliot1@gmail.com'>appiahelliot1@gmail.com</a><br>WhatsApp: <a href='https://wa.me/85251910075'>+852 5191 0075</a>",
+
+                'experience': "WORK HISTORY:<br>• Full Stack Developer @ Sparrow (HKUST TLE) - SUMMER 2025<br>• Video Producer @ HKUST Sustainability Office - JUNE 2025<br>• Research Assistant @ Pioneer Academics - ONGOING<br>• Curriculum Developer @ STEMEX Academy - ONGOING<br>• Solar Engineering Intern @ Daystar Power Solutions - OCT 2023<br>• Researcher @ KNUST with Dr. Adu Boakye - JUL 2023",
+
+                'sudo': "User not in the sudoers file. This incident will be reported.",
+            };
+
+            // Save visitor data to Firebase
+            function saveVisitorData() {
+                if (!database) {
+                    console.warn('Database not initialized');
+                    return;
+                }
+                
+                const sessionTime = Math.round((Date.now() - parseInt(sessionStorage.getItem('portfolio_sessionStart') || Date.now().toString())) / 1000);
+                const visitorId = sessionStorage.getItem('portfolio_visitorId') || 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                sessionStorage.setItem('portfolio_visitorId', visitorId);
+                
+                const visitorData = {
+                    pageViews: analyticsData.pageViews,
+                    sessionTime: sessionTime,
+                    scrollDepth: analyticsData.scrollDepth,
+                    clicks: analyticsData.clicks,
+                    commandsUsed: analyticsData.commandsUsed.length,
+                    screenSize: analyticsData.screenSize,
+                    referrer: analyticsData.referrer,
+                    timestamp: new Date().toISOString(),
+                    userAgent: navigator.userAgent.substring(0, 100) // Limit length
+                };
+                
+                // Save to Firebase Realtime Database
+                try {
+                    database.ref('visitors/' + visitorId).set(visitorData);
+                    database.ref('analytics/totalPageViews').transaction((current) => (current || 0) + 1);
+                    database.ref('analytics/totalSessions').transaction((current) => {
+                        if (!sessionStorage.getItem('portfolio_sessionCounted')) {
+                            sessionStorage.setItem('portfolio_sessionCounted', 'true');
+                            return (current || 0) + 1;
+                        }
+                        return current || 0;
+                    });
+                } catch(e) {
+                    console.error('Error saving to database:', e);
+                }
+            }
+            
+            // Save data periodically and on unload
+            setInterval(saveVisitorData, 30000); // Every 30 seconds
+            window.addEventListener('beforeunload', saveVisitorData);
+            
+            // Helper function to render local analytics
+            function renderLocalAnalytics() {
+                const sessionTime = Math.round((Date.now() - parseInt(sessionStorage.getItem('portfolio_sessionStart') || Date.now().toString())) / 1000);
+                const formatTime = (seconds) => {
+                    if (seconds < 60) return `${seconds}s`;
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    if (mins < 60) return `${mins}m ${secs}s`;
+                    const hours = Math.floor(mins / 60);
+                    const remainingMins = mins % 60;
+                    return `${hours}h ${remainingMins}m`;
+                };
+                
+                return `
+                    <div class="admin-grid">
+                        <div class="admin-card">
+                            <div class="admin-card-title">Your Page Views</div>
+                            <div class="admin-stat">${analyticsData.pageViews}</div>
+                            <div class="admin-label">Local data only</div>
+                        </div>
+                        <div class="admin-card">
+                            <div class="admin-card-title">Your Sessions</div>
+                            <div class="admin-stat">${analyticsData.sessions}</div>
+                            <div class="admin-label">Local data only</div>
+                        </div>
+                        <div class="admin-card">
+                            <div class="admin-card-title">Total Time</div>
+                            <div class="admin-stat">${formatTime(analyticsData.totalTime)}</div>
+                            <div class="admin-label">Local data only</div>
+                        </div>
+                        <div class="admin-card">
+                            <div class="admin-card-title">Current Session</div>
+                            <div class="admin-stat">${formatTime(sessionTime)}</div>
+                            <div class="admin-label">This visit</div>
+                        </div>
+                        <div class="admin-card">
+                            <div class="admin-card-title">Scroll Depth</div>
+                            <div class="admin-stat">${analyticsData.scrollDepth}%</div>
+                            <div class="admin-label">Maximum reached</div>
+                        </div>
+                        <div class="admin-card">
+                            <div class="admin-card-title">Total Clicks</div>
+                            <div class="admin-stat">${analyticsData.clicks}</div>
+                            <div class="admin-label">Your interactions</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Admin mode activation function - Shows full page dashboard
+            function activateAdminMode() {
+                adminModeActive = true;
+                const adminDashboard = document.getElementById('admin-dashboard');
+                const adminContent = document.getElementById('admin-content');
+                
+                adminDashboard.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Show loading with close button always visible
+                adminContent.innerHTML = '<div class="loading-spinner">Loading analytics from all visitors...<br><small style="color: var(--text-muted); margin-top: 1rem; display: block;">If this takes too long, click CLOSE above</small></div>';
+                
+                // Set timeout to show fallback if database doesn't respond
+                const timeoutId = setTimeout(() => {
+                    adminContent.innerHTML = `
+                        <div class="admin-card">
+                            <div class="admin-card-title" style="color: #ff7b72;">⚠️ Database Connection Timeout</div>
+                            <p style="color: var(--text-main); margin-top: 1rem;">
+                                The Firebase Realtime Database may not be enabled or is taking too long to respond.
+                            </p>
+                            <p style="color: var(--text-muted); margin-top: 1rem;">
+                                To enable it:<br>
+                                1. Go to <a href="https://console.firebase.google.com/project/appiahelliotrichard" target="_blank" style="color: var(--primary);">Firebase Console</a><br>
+                                2. Click "Realtime Database" in the left sidebar<br>
+                                3. Click "Create Database"<br>
+                                4. Choose a location and start in test mode
+                            </p>
+                            <p style="color: var(--text-muted); margin-top: 1rem;">
+                                For now, showing local analytics only:
+                            </p>
+                        </div>
+                        ${renderLocalAnalytics()}
+                    `;
+                }, 5000); // 5 second timeout
+                
+                if (!database) {
+                    clearTimeout(timeoutId);
+                    adminContent.innerHTML = `
+                        <div class="admin-card">
+                            <div class="admin-card-title" style="color: #ff7b72;">⚠️ Database Not Available</div>
+                            <p style="color: var(--text-main); margin-top: 1rem;">
+                                Firebase Realtime Database is not initialized. Please enable it in Firebase Console.
+                            </p>
+                            <p style="color: var(--text-muted); margin-top: 1rem;">
+                                Showing local analytics only:
+                            </p>
+                        </div>
+                        ${renderLocalAnalytics()}
+                    `;
+                    return;
+                }
+                
+                // Fetch aggregated analytics from Firebase with error handling
+                Promise.race([
+                    database.ref('analytics').once('value'),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 4000))
+                ]).then((snapshot) => {
+                    clearTimeout(timeoutId);
+                    const analytics = snapshot.val() || {};
+                    
+                    // Fetch all visitors with timeout
+                    return Promise.race([
+                        database.ref('visitors').once('value'),
+                        new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 4000))
+                    ]).then((visitorsSnapshot) => {
+                        const visitors = visitorsSnapshot.val() || {};
+                        const visitorArray = Object.values(visitors);
+                        
+                        // Calculate aggregated stats
+                        const totalPageViews = analytics.totalPageViews || 0;
+                        const totalSessions = analytics.totalSessions || 0;
+                        const totalTime = visitorArray.reduce((sum, v) => sum + (v.sessionTime || 0), 0);
+                        const totalClicks = visitorArray.reduce((sum, v) => sum + (v.clicks || 0), 0);
+                        const totalCommands = visitorArray.reduce((sum, v) => sum + (v.commandsUsed || 0), 0);
+                        const avgScrollDepth = visitorArray.length > 0 
+                            ? Math.round(visitorArray.reduce((sum, v) => sum + (v.scrollDepth || 0), 0) / visitorArray.length)
+                            : 0;
+                        
+                        // Get unique screen sizes
+                        const screenSizes = [...new Set(visitorArray.map(v => v.screenSize).filter(Boolean))];
+                        
+                        // Get referrers
+                        const referrers = visitorArray.map(v => v.referrer).filter(Boolean);
+                        const referrerCounts = {};
+                        referrers.forEach(ref => {
+                            const domain = ref.includes('http') ? new URL(ref).hostname : ref;
+                            referrerCounts[domain] = (referrerCounts[domain] || 0) + 1;
+                        });
+                        
+                        // Format time
+                        const formatTime = (seconds) => {
+                            if (seconds < 60) return `${seconds}s`;
+                            const mins = Math.floor(seconds / 60);
+                            const secs = seconds % 60;
+                            if (mins < 60) return `${mins}m ${secs}s`;
+                            const hours = Math.floor(mins / 60);
+                            const remainingMins = mins % 60;
+                            return `${hours}h ${remainingMins}m`;
+                        };
+                        
+                        // Render dashboard
+                        adminContent.innerHTML = `
+                            <div class="admin-grid">
+                                <div class="admin-card">
+                                    <div class="admin-card-title">Total Page Views</div>
+                                    <div class="admin-stat">${totalPageViews.toLocaleString()}</div>
+                                    <div class="admin-label">Across all visitors</div>
+                                </div>
+                                
+                                <div class="admin-card">
+                                    <div class="admin-card-title">Total Sessions</div>
+                                    <div class="admin-stat">${totalSessions.toLocaleString()}</div>
+                                    <div class="admin-label">Unique sessions</div>
+                                </div>
+                                
+                                <div class="admin-card">
+                                    <div class="admin-card-title">Total Time on Site</div>
+                                    <div class="admin-stat">${formatTime(totalTime)}</div>
+                                    <div class="admin-label">Combined time</div>
+                                </div>
+                                
+                                <div class="admin-card">
+                                    <div class="admin-card-title">Total Clicks</div>
+                                    <div class="admin-stat">${totalClicks.toLocaleString()}</div>
+                                    <div class="admin-label">User interactions</div>
+                                </div>
+                                
+                                <div class="admin-card">
+                                    <div class="admin-card-title">Commands Used</div>
+                                    <div class="admin-stat">${totalCommands.toLocaleString()}</div>
+                                    <div class="admin-label">Terminal commands</div>
+                                </div>
+                                
+                                <div class="admin-card">
+                                    <div class="admin-card-title">Avg Scroll Depth</div>
+                                    <div class="admin-stat">${avgScrollDepth}%</div>
+                                    <div class="admin-label">Average engagement</div>
+                                </div>
+                            </div>
+                            
+                            <div class="admin-card" style="margin-top: 2rem;">
+                                <div class="admin-card-title">Top Referrers</div>
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Source</th>
+                                            <th>Visits</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${Object.entries(referrerCounts)
+                                            .sort((a, b) => b[1] - a[1])
+                                            .slice(0, 10)
+                                            .map(([ref, count]) => `
+                                                <tr>
+                                                    <td>${ref === 'Direct' ? 'Direct' : ref}</td>
+                                                    <td>${count}</td>
+                                                </tr>
+                                            `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="admin-card" style="margin-top: 2rem;">
+                                <div class="admin-card-title">Screen Sizes</div>
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Screen Size</th>
+                                            <th>Count</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${screenSizes.slice(0, 10).map(size => {
+                                            const count = visitorArray.filter(v => v.screenSize === size).length;
+                                            return `
+                                                <tr>
+                                                    <td>${size}</td>
+                                                    <td>${count}</td>
+                                                </tr>
+                                            `;
+                                        }).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="admin-card" style="margin-top: 2rem;">
+                                <div class="admin-card-title">Recent Visitors (Last 20)</div>
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Page Views</th>
+                                            <th>Session Time</th>
+                                            <th>Scroll Depth</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${visitorArray
+                                            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                                            .slice(0, 20)
+                                            .map(visitor => {
+                                                const time = new Date(visitor.timestamp).toLocaleString();
+                                                return `
+                                                    <tr>
+                                                        <td>${time}</td>
+                                                        <td>${visitor.pageViews || 0}</td>
+                                                        <td>${formatTime(visitor.sessionTime || 0)}</td>
+                                                        <td>${visitor.scrollDepth || 0}%</td>
+                                                    </tr>
+                                                `;
+                                            }).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        `;
+                    }).catch((error) => {
+                        clearTimeout(timeoutId);
+                        console.error('Error fetching visitors:', error);
+                        adminContent.innerHTML = `
+                            <div class="admin-card">
+                                <div class="admin-card-title" style="color: #ff7b72;">⚠️ Error Loading Data</div>
+                                <p style="color: var(--text-main); margin-top: 1rem;">
+                                    Could not fetch visitor data from database. Showing local analytics:
+                                </p>
+                            </div>
+                            ${renderLocalAnalytics()}
+                        `;
+                    });
+                }).catch((error) => {
+                    clearTimeout(timeoutId);
+                    console.error('Error fetching analytics:', error);
+                    adminContent.innerHTML = `
+                        <div class="admin-card">
+                            <div class="admin-card-title" style="color: #ff7b72;">⚠️ Database Error</div>
+                            <p style="color: var(--text-main); margin-top: 1rem;">
+                                Could not connect to Firebase Realtime Database. This might mean:<br>
+                                • Database is not enabled<br>
+                                • Network connection issue<br>
+                                • Database rules are blocking access
+                            </p>
+                            <p style="color: var(--text-muted); margin-top: 1rem;">
+                                Showing local analytics only:
+                            </p>
+                        </div>
+                        ${renderLocalAnalytics()}
+                    `;
+                });
+            }
+            
+            // Close admin dashboard
+            function closeAdminDashboard() {
+                const adminDashboard = document.getElementById('admin-dashboard');
+                adminDashboard.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Make closeAdminDashboard globally accessible
+            window.closeAdminDashboard = closeAdminDashboard;
+
+            // Event Listener
+            terminalInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    const command = terminalInput.value.trim().toLowerCase();
+
+                    // Add user's command to history
+                    if (command !== 'clear') {
+                        addTerminalHTML(`<div class="terminal-input-line"><span class="terminal-prompt">$</span><span style="color:var(--text-main)">${terminalInput.value}</span></div>`);
+                    }
+
+                    // Process Command
+                    processTerminalCommand(command);
+
+                    // Clear input
+                    terminalInput.value = '';
+                }
+            });
+
+            // Command Processor
+            function processTerminalCommand(cmd) {
+                if (cmd === 'clear') {
+                    // Keep the header, remove the rest
+                    const allLines = terminalOutput.querySelectorAll('.terminal-output-line, .terminal-input-line, .terminal-command-history');
+                    allLines.forEach(el => {
+                        if(!el.closest('.terminal-input-line') || el.querySelector('input')) {
+                            if (!el.querySelector('input')) el.remove();
+                        }
+                    });
+                    return;
+                }
+
+                // Check for admin password (case-sensitive check)
+                if (cmd === ADMIN_PASSWORD) {
+                    activateAdminMode();
+                    return;
+                }
+
+                if (commands[cmd]) {
+                    // Track command usage
+                    trackCommand(cmd);
+                    // Simulated loading or instant response
+                    typewriterTerminalEffect(commands[cmd]);
+                } else if (cmd === '') {
+                    // Do nothing for empty enter
+                } else {
+                    // Track failed commands too
+                    trackCommand(cmd);
+                    addTerminalHTML(`<div class="terminal-error">zsh: command not found: ${cmd}</div>`);
+                }
+            }
+
+            // Utilities
+            function addTerminalHTML(html) {
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                div.classList.add('terminal-output-line');
+                // Insert before the input line
+                terminalOutput.insertBefore(div, terminalOutput.lastElementChild);
+                scrollTerminalToBottom();
+            }
+
+            function typewriterTerminalEffect(text) {
+                // Simple timeout to simulate "processing"
+                setTimeout(() => {
+                    addTerminalHTML(text);
+                }, 200);
+            }
+
+            function scrollTerminalToBottom() {
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+
+            // Focus input when clicking anywhere on terminal
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.terminal-window')) {
+                    terminalInput.focus();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
