@@ -1,0 +1,13 @@
+# Netlify build from portfolio folder (site lives in portfolio/)
+[build]
+  base = "portfolio"
+  publish = "."
+  command = "echo 'No build step required'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"
