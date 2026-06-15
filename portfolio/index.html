@@ -652,6 +652,33 @@
             height: auto;
             display: block;
         }
+        .project-visual--aurapply {
+            background: radial-gradient(circle at top right, rgba(255, 77, 0, 0.35), transparent 55%), linear-gradient(135deg, #1a0a00 0%, #0f0f0f 45%, #120806 100%);
+        }
+        .project-visual--aurapply .project-img {
+            object-fit: cover;
+            object-position: center top;
+            background: transparent;
+            padding: 0;
+        }
+        .project-visual--aurapply .project-logo-watermark {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 2;
+            width: 56px;
+            height: 56px;
+            padding: 8px;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.82);
+            border: 1px solid rgba(255, 165, 0, 0.25);
+        }
+        .project-visual--aurapply .project-logo-watermark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
         .project-brand-badge span {
             font-family: var(--font-mono);
             font-size: 0.75rem;
@@ -1567,18 +1594,21 @@
 
             <!-- PROJECT 3 - AURAPPLY -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
-                <div class="project-visual">
+                <div class="project-visual project-visual--aurapply">
                     <div class="project-overlay"></div>
-                    <img src="images/projects/aurapply.jpg" class="project-img project-img--contain" alt="AurApply job application platform">
+                    <img src="images/projects/aurapply-hero.jpg" class="project-img" alt="AurApply swipe-to-apply job platform">
+                    <div class="project-logo-watermark">
+                        <img src="images/projects/aurapply-logo.svg" alt="AurApply logo">
+                    </div>
                     <div class="project-brand-badge">
-                        <i class="fas fa-briefcase" style="color: var(--primary); font-size: 1.1rem;"></i>
+                        <img src="images/projects/aurapply-logo.svg" alt="AurApply logo">
                         <span>AURAPPLY</span>
                     </div>
                 </div>
                 <div class="project-info">
                     <div class="mono text-primary" style="margin-bottom: 0.5rem;">PERSONAL PROJECT / LIVE</div>
                     <h3>AurApply</h3>
-                    <p>Personal full-stack project now live on Netlify, built to streamline application workflows and deliver a smoother, more intuitive user experience.</p>
+                    <p>Swipe-to-apply job platform live on Netlify. Users discover matched roles, filter by category, and automate applications through a mobile-first experience built around fast job discovery.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">Full Stack</span><span class="tech-tag">Netlify</span><span class="tech-tag">Personal Project</span>
                     </div>
