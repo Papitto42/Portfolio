@@ -1,7 +1,6 @@
-# Netlify build from portfolio folder (site lives in portfolio/)
+# Site files live in portfolio/ — publish that folder as the site root
 [build]
-  base = "portfolio"
-  publish = "."
+  publish = "portfolio"
   command = "echo 'No build step required'"
 
 [[redirects]]
