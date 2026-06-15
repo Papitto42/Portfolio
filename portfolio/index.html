@@ -658,7 +658,12 @@
             color: #fff;
             letter-spacing: 0.04em;
         }
-        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-img--contain {
+            object-fit: contain;
+            object-position: center;
+            background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+            padding: 12px;
+        }
         .project-overlay {
             position: absolute; top:0; left:0; width:100%; height:100%;
             background: linear-gradient(to top, #000 0%, transparent 60%);
@@ -1494,7 +1499,28 @@
 
         <div class="project-grid">
             
-            <!-- PROJECT 1 - ROAMEO AI -->
+            <!-- PROJECT 1 - LEDGESTYLE -->
+            <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <div class="project-visual">
+                    <div class="project-overlay"></div>
+                    <img src="images/projects/ledgestyle.jpg" class="project-img" alt="Ledgestyle AI wardrobe styling app">
+                    <div class="project-brand-badge">
+                        <img src="images/projects/ledgestyle-logo.svg" alt="Ledgestyle logo">
+                        <span>LEDGESTYLE</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">AI / FASHION · LATEST DEPLOYMENT</div>
+                    <h3>Ledgestyle</h3>
+                    <p>AI-powered wardrobe and styling app live on Firebase. Helps users organize their closet, get outfit suggestions from weather and calendar context, run virtual try-ons, and track personal color analysis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span><span class="tech-tag">Firebase</span><span class="tech-tag">Gemini AI</span><span class="tech-tag">Tailwind</span>
+                    </div>
+                    <a href="https://ledgestyle-ai.web.app/" target="_blank" rel="noopener noreferrer" class="btn" style="margin-top: 1rem;">View Ledgestyle</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 2 - ROAMEO AI -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
                 <div class="project-visual project-visual--roameo">
                     <div class="project-overlay"></div>
@@ -1508,7 +1534,7 @@
                     </div>
                 </div>
                 <div class="project-info">
-                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">AI / FULL STACK · LATEST INTERNSHIP</div>
+                    <div class="mono text-primary" style="margin-bottom: 0.5rem;">AI / FULL STACK · INTERNSHIP</div>
                     <h3>Roameo AI</h3>
                     <p>Software Developer at Silvertrees Ventures. Led a full UI/UX overhaul, built analytics pipelines with Supabase RPCs and PostHog funnels, integrated FastAPI for ranked attractions, and automated email digests via Vercel cron and Resend.</p>
                     <div class="tech-stack">
@@ -1543,7 +1569,7 @@
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
                 <div class="project-visual">
                     <div class="project-overlay"></div>
-                    <img src="images/projects/aurapply.jpg" class="project-img" alt="AurApply application platform">
+                    <img src="images/projects/aurapply.jpg" class="project-img project-img--contain" alt="AurApply job application platform">
                     <div class="project-brand-badge">
                         <i class="fas fa-briefcase" style="color: var(--primary); font-size: 1.1rem;"></i>
                         <span>AURAPPLY</span>
@@ -2070,7 +2096,7 @@
 
                 'stack': "CORE SYSTEMS:<br>[Python, JavaScript, Vue.js, MATLAB, Figma, HTML/CSS, Data Analysis, UI/UX Design]",
 
-                'projects': "RECENT DEPLOYMENTS:<br>1. <a href='https://www.roameoai.com/home' target='_blank'>Roameo AI</a> - AI Travel Planner (Software Developer @ Silvertrees Ventures)<br>2. <a href='https://app.sparrownests.com/#/' target='_blank'>Sparrow Housing Platform</a> - Full Stack Web App (Vue.js/Leaflet.js)<br>3. <a href='https://aurapply.netlify.app' target='_blank'>AurApply</a> - Personal Full Stack Project (Live on Netlify)<br>4. <a href='https://www.petpetclub.com.hk/' target='_blank'>Pet Pet Club Limited</a> - Web Development",
+                'projects': "RECENT DEPLOYMENTS:<br>1. <a href='https://ledgestyle-ai.web.app/' target='_blank'>Ledgestyle</a> - AI Wardrobe & Styling App (Firebase)<br>2. <a href='https://www.roameoai.com/home' target='_blank'>Roameo AI</a> - AI Travel Planner (Software Developer @ Silvertrees Ventures)<br>3. <a href='https://app.sparrownests.com/#/' target='_blank'>Sparrow Housing Platform</a> - Full Stack Web App (Vue.js/Leaflet.js)<br>4. <a href='https://aurapply.netlify.app' target='_blank'>AurApply</a> - Personal Full Stack Project (Live on Netlify)<br>5. <a href='https://www.petpetclub.com.hk/' target='_blank'>Pet Pet Club Limited</a> - Web Development",
 
                 'contact': "Opening communication channels...<br>Email: <a href='mailto:appiahelliot1@gmail.com'>appiahelliot1@gmail.com</a><br>WhatsApp: <a href='https://wa.me/85251910075'>+852 5191 0075</a><br>LinkedIn: <a href='https://www.linkedin.com/in/elliot-appiah-9753b52a3' target='_blank'>elliot-appiah</a>",
 
