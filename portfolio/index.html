@@ -602,6 +602,40 @@
             overflow: hidden; position: relative;
         }
         /* Image styling */
+        .project-visual-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 12px;
+        }
+        .project-visual-link:hover .project-img,
+        .project-visual-link:focus-visible .project-img {
+            transform: scale(1.05);
+        }
+        .project-visual-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+        .project-view-hint {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #fff;
+            letter-spacing: 0.1em;
+            pointer-events: none;
+        }
+        .project-visual-link:hover .project-view-hint,
+        .project-visual-link:focus-visible .project-view-hint {
+            opacity: 1;
+        }
         .project-visual {
             height: 350px; width: 100%; border-radius: 12px; overflow: hidden;
             position: relative; border: 1px solid #333;
@@ -627,30 +661,48 @@
             backdrop-filter: blur(8px);
         }
         .project-brand-badge img {
-            width: 28px;
-            height: 28px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
         }
         .project-brand-badge img.brand-logo-large {
             width: 88px;
             height: auto;
-            max-height: 36px;
+            max-height: 40px;
         }
-        .project-visual--roameo .project-logo-watermark {
+        .project-logo-watermark {
             position: absolute;
             top: 18px;
             right: 18px;
             z-index: 2;
-            width: 130px;
-            padding: 10px 12px;
-            border-radius: 12px;
+            width: 72px;
+            height: 72px;
+            padding: 10px;
+            border-radius: 16px;
             background: rgba(0, 0, 0, 0.82);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+        }
+        .project-logo-watermark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .project-visual--roameo .project-logo-watermark {
+            width: 130px;
+            height: auto;
+            padding: 10px 12px;
         }
         .project-visual--roameo .project-logo-watermark img {
             width: 100%;
             height: auto;
-            display: block;
+        }
+        .project-visual--aurapply .project-logo-watermark {
+            width: 80px;
+            height: 80px;
+            border: 1px solid rgba(255, 140, 0, 0.45);
+            box-shadow: 0 0 24px rgba(255, 77, 0, 0.25);
         }
         .project-visual--aurapply {
             background: radial-gradient(circle at top right, rgba(255, 77, 0, 0.35), transparent 55%), linear-gradient(135deg, #1a0a00 0%, #0f0f0f 45%, #120806 100%);
@@ -661,23 +713,10 @@
             background: transparent;
             padding: 0;
         }
-        .project-visual--aurapply .project-logo-watermark {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            z-index: 2;
-            width: 56px;
-            height: 56px;
-            padding: 8px;
-            border-radius: 14px;
-            background: rgba(0, 0, 0, 0.82);
-            border: 1px solid rgba(255, 165, 0, 0.25);
-        }
-        .project-visual--aurapply .project-logo-watermark img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+        .project-visual--aurapply .project-brand-badge img {
+            width: 44px;
+            height: 44px;
+            filter: drop-shadow(0 0 8px rgba(255, 120, 0, 0.45));
         }
         .project-brand-badge span {
             font-family: var(--font-mono);
@@ -1528,14 +1567,20 @@
             
             <!-- PROJECT 1 - LEDGESTYLE -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <a href="https://ledgestyle-ai.web.app/" target="_blank" rel="noopener noreferrer" class="project-visual-link hover-trigger" aria-label="View Ledgestyle">
                 <div class="project-visual">
                     <div class="project-overlay"></div>
                     <img src="images/projects/ledgestyle.jpg" class="project-img" alt="Ledgestyle AI wardrobe styling app">
+                    <div class="project-logo-watermark">
+                        <img src="images/projects/ledgestyle-logo.svg" alt="Ledgestyle logo">
+                    </div>
                     <div class="project-brand-badge">
                         <img src="images/projects/ledgestyle-logo.svg" alt="Ledgestyle logo">
                         <span>LEDGESTYLE</span>
                     </div>
+                    <div class="project-view-hint">VIEW PROJECT →</div>
                 </div>
+                </a>
                 <div class="project-info">
                     <div class="mono text-primary" style="margin-bottom: 0.5rem;">AI / FASHION · LATEST DEPLOYMENT</div>
                     <h3>Ledgestyle</h3>
@@ -1549,6 +1594,7 @@
 
             <!-- PROJECT 2 - ROAMEO AI -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <a href="https://www.roameoai.com/home" target="_blank" rel="noopener noreferrer" class="project-visual-link hover-trigger" aria-label="View Roameo AI">
                 <div class="project-visual project-visual--roameo">
                     <div class="project-overlay"></div>
                     <img src="images/projects/roameo-hero.png" class="project-img" alt="Roameo AI travel planning interface">
@@ -1559,7 +1605,9 @@
                         <img src="images/projects/roameo-logo.png" class="brand-logo-large" alt="Roameo AI logo">
                         <span>ROAMEO AI</span>
                     </div>
+                    <div class="project-view-hint">VIEW PROJECT →</div>
                 </div>
+                </a>
                 <div class="project-info">
                     <div class="mono text-primary" style="margin-bottom: 0.5rem;">AI / FULL STACK · INTERNSHIP</div>
                     <h3>Roameo AI</h3>
@@ -1571,16 +1619,22 @@
                 </div>
             </article>
 
-            <!-- PROJECT 2 -->
+            <!-- PROJECT 3 -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <a href="https://app.sparrownests.com/#/" target="_blank" rel="noopener noreferrer" class="project-visual-link hover-trigger" aria-label="View Sparrow Housing Platform">
                 <div class="project-visual">
                     <div class="project-overlay"></div>
                     <img src="images/projects/sparrow-dorm.jpg" class="project-img" alt="Sparrow student housing platform">
+                    <div class="project-logo-watermark">
+                        <img src="images/projects/sparrow-logo.png" alt="Sparrow logo">
+                    </div>
                     <div class="project-brand-badge">
                         <img src="images/projects/sparrow-logo.png" alt="Sparrow logo">
                         <span>SPARROW</span>
                     </div>
+                    <div class="project-view-hint">VIEW PROJECT →</div>
                 </div>
+                </a>
                 <div class="project-info">
                     <div class="mono text-primary" style="margin-bottom: 0.5rem;">WEB / FULL STACK</div>
                     <h3>Sparrow Housing Platform</h3>
@@ -1592,8 +1646,9 @@
                 </div>
             </article>
 
-            <!-- PROJECT 3 - AURAPPLY -->
+            <!-- PROJECT 4 - AURAPPLY -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <a href="https://aurapply1.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-visual-link hover-trigger" aria-label="View AurApply">
                 <div class="project-visual project-visual--aurapply">
                     <div class="project-overlay"></div>
                     <img src="images/projects/aurapply-hero.jpg" class="project-img" alt="AurApply swipe-to-apply job platform">
@@ -1604,7 +1659,9 @@
                         <img src="images/projects/aurapply-logo.svg" alt="AurApply logo">
                         <span>AURAPPLY</span>
                     </div>
+                    <div class="project-view-hint">VIEW PROJECT →</div>
                 </div>
+                </a>
                 <div class="project-info">
                     <div class="mono text-primary" style="margin-bottom: 0.5rem;">PERSONAL PROJECT / LIVE</div>
                     <h3>AurApply</h3>
@@ -1616,16 +1673,22 @@
                 </div>
             </article>
 
-            <!-- PROJECT 4 -->
+            <!-- PROJECT 5 -->
             <article class="project-card hover-trigger animate-hidden anim-flip-up">
+                <a href="https://www.petpetclub.com.hk/" target="_blank" rel="noopener noreferrer" class="project-visual-link hover-trigger" aria-label="View Pet Pet Club">
                 <div class="project-visual">
                     <div class="project-overlay"></div>
                     <img src="images/projects/petpet.jpg" class="project-img" alt="Pet Pet Club PHealth AI platform">
+                    <div class="project-logo-watermark">
+                        <img src="images/projects/petpet-logo.png" alt="Pet Pet Club logo">
+                    </div>
                     <div class="project-brand-badge">
                         <img src="images/projects/petpet-logo.png" alt="Pet Pet Club logo">
                         <span>PHEALTH AI</span>
                     </div>
+                    <div class="project-view-hint">VIEW PROJECT →</div>
                 </div>
+                </a>
                 <div class="project-info">
                     <div class="mono text-primary" style="margin-bottom: 0.5rem;">WEB / AI PET HEALTH</div>
                     <h3>Pet Pet Club Limited</h3>
